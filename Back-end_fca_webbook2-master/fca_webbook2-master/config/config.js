@@ -7,8 +7,8 @@ module.exports = {
             quiz: 'quizzes',
             user: 'users',
             user_levels: 'user_levels',
-            experts: 'experts',
-            sponsors:'sponsors'
+            expert: 'experts',
+            sponsor:'sponsors'
         }
     },
     auth: {
