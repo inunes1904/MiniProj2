@@ -32,18 +32,17 @@
                   <i class="fas fa-arrow-up" v-if="sortType===1" @click="sort()"></i>
                   <i class="fas fa-arrow-down" v-else @click="sort()"></i>
                 </th>
-                <th scope="col">CONTATO</th>
+                <th scope="col">CONTACTO</th>
                 <th scope="col">ANIMAL</th>
-                <th scope="col">VALOR DO PATROCÍNIO</th>
+                <th scope="col">VALOR</th>
                 <th scope="col">AÇÕES</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="sponsor of sponsors" :key="sponsor._id">
                 <td class="pt-4">{{sponsor.name}}</td>
-                <td class="pt-4">{{sponsor.contact}}</td>
-                <td class="pt-4">{{sponsor.animal}}</td>
-                <td class="pt-4">{{sponsor.number}}</td>
+                <td class="pt-4">{{sponsor.group}}</td>
+                <td class="pt-4">{{sponsor.level}}</td>
                 <td>
                   <router-link
                     :to="{name:'editSponsor', params:{sponsorId: sponsor._id}}"
@@ -54,14 +53,12 @@
                   </router-link>
                   <button
                     @click="viewSponsor(sponsor._id)"
-                    @click="viewSponsor(sponsor._id)"
                     type="button"
                     class="btn btn-outline-success mr-2 mt-2"
                   >
                     <i class="fas fa-search"></i> VER
                   </button>
                   <button
-                    @click="removeSponsor(sponsor._id)"
                     @click="removeSponsor(sponsor._id)"
                     type="button"
                     class="btn btn-outline-danger mr-2 mt-2"
@@ -101,12 +98,12 @@ export default {
   methods: {
     fetchSponsors() {
       this.$store.dispatch(`sponsor/${FETCH_SPONSORS}`).then(
-          () => {
-            this.sponsors = this.getSponsors;
-          },
-          err => {
-            this.$alert(`${err.message}`, "Erro", "error");
-          }
+        () => {
+          this.sponsors = this.getSponsors;
+        },
+        err => {
+          this.$alert(`${err.message}`, "Erro", "error");
+        }
       );
     },
     sort() {
@@ -134,28 +131,33 @@ export default {
 
     generateTemplate(sponsor) {
       let response = `
-          <h4>Grupo:</b> ${sponsor.name}</h4>
+          <h4>Grupo:</b> ${sponsor.group}</h4>
+          <h5>(nível:</b> ${sponsor.level})</h5>
+          <p>${sponsor.description}</p>
           <p>Elementos multimédia:
         `;
-
+      for (const link of sponsor.links) {
+        response += ` <a href='${link.url}' target='_blank'>${link.types}</a>`;
+      }
+      response += `</p><p>Comentários: ${sponsor.comments.length} Avaliações: ${sponsor.evaluation.length}</p> `;
       return response;
     },
     removeSponsor(id) {
       this.$confirm(
-          "Se sim, clique em OK",
-          "Deseja mesmo remover o sponsor?",
-          "warning",
-          { confirmButtonText: "OK", cancelButtonText: "Cancelar" }
+        "Se sim, clique em OK",
+        "Deseja mesmo remover o sponsor?",
+        "warning",
+        { confirmButtonText: "OK", cancelButtonText: "Cancelar" }
       ).then(
-          () => {
-            this.$store.dispatch(`animal/${REMOVE_SPONSOR}`, id).then(() => {
-              this.$alert(this.getMessage, "Sponsor removido!", "success");
-              this.fetchSponsors();
-            });
-          },
-          () => {
-            this.$alert("Remoção cancelada!", "Informação", "info");
-          }
+        () => {
+          this.$store.dispatch(`sponsor/${REMOVE_SPONSOR}`, id).then(() => {
+            this.$alert(this.getMessage, "Sponsor removido!", "success");
+            this.fetchSponsors();
+          });
+        },
+        () => {
+          this.$alert("Remoção cancelada!", "Informação", "info");
+        }
       );
     }
   },
@@ -163,5 +165,4 @@ export default {
     this.fetchSponsors();
   }
 };
-
 </script>
