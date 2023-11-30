@@ -2,7 +2,7 @@
 
 Repo: https://github.com/inunes1904/MiniProj2
 
-### TASK
+# TASK
 
 Phases of the task:
 
