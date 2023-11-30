@@ -15,3 +15,13 @@ Phases of the task:
 4.) All the files developed must be submitted on the Git platform, in each student's individual account. The project in Git should be called MiniProj2. The project will be evaluated using the files in Git.
 
 5.) You must contribute to the general debate by commenting and giving your opinion (in a sustained manner, as in the previous points) on your colleagues' interventions, and by supporting your colleagues in resolving their doubts, using the task forum for this purpose.
+
+## RESULTS
+
+### SPONSORS
+![](https://github.com/inunes1904/MiniProj2/blob/main/Patrocinadores/Patrocinadores.png?raw=true)
+![](https://github.com/inunes1904/MiniProj2/blob/main/Patrocinadores/verPatrocinador.png?raw=true)
+
+### EXPERTS
+![](https://github.com/inunes1904/MiniProj2/blob/main/Especialistas/Especialistas.png?raw=true)
+![](https://github.com/inunes1904/MiniProj2/blob/main/Especialistas/ver-.png?raw=true)
