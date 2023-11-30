@@ -151,9 +151,9 @@ export default {
           <b>Animal:</b> ${sponsor.animal} <br>
           <b>Grupo:</b> ${sponsor.group} <br>
           <b>Descrição:</b> ${sponsor.description}<br>
-          <b>Anos de Experiência:</b> ${sponsor.years_experience} <br>
+          <b>Anos de Patrocinio:</b> ${sponsor.years_sponsored} <br>
           <b>Localização:</b> ${sponsor.location.city} / ${sponsor.location.country} <br>
-          <b>Anos de Experiência:</b> ${sponsor.value} € <br>
+          <b>Valor por ano:</b> ${sponsor.value} € <br>
           <b>Localização:</b> ${sponsor.contact}
         </p>
       `;
