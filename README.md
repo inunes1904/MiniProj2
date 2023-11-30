@@ -2,6 +2,8 @@
 
 Repo: https://github.com/inunes1904/MiniProj2
 
+Made by: Ivo Nunes nº2302582 
+
 ### TASK
 
 Phases of the task:
