@@ -158,6 +158,22 @@ const routes = [
     component: () => import("@/views/sponsors/AddSponsor.vue")
   },
 
+  {
+    path: "/admin/experts",
+    name: "listExperts",
+    component: () => import("@/views/experts/ListExperts.vue")
+  },
+  {
+    path: "/admin/experts/:expertId",
+    name: "editExpert",
+    component: () => import("@/views/experts/EditExpert.vue")
+  },
+  {
+    path: "/admin/experts/add",
+    name: "addExpert",
+    component: () => import("@/views/experts/AddExpert.vue")
+  },
+
   // Redirect to 404 page, if no match found
   {
     path: "*",

@@ -1,7 +1,7 @@
 <template>
   <section class="page-section">
     <b-container>
-      <HeaderPage title="Adicionar Sponsor" />
+      <HeaderPage title="Adicionar Patrocinador" />
       <b-row>
         <b-col cols="2"></b-col>
         <b-col>
@@ -98,7 +98,7 @@
                   v-model="contact"
                   type="text"
                   class="form-control form-control-lg"
-                  placeholder="Valor por ano"
+                  placeholder="Contacto"
                   required
               />
             </div>
@@ -139,6 +139,8 @@ export default {
       group: "",
       years_sponsored: 0,
       description: "",
+      contact: "",
+      value:0.0,
       location: {
         city: "",
         country: ""

@@ -9,7 +9,7 @@
           <b-card-group deck>
             <AdminOptionBox routeName="listUsers" iconName="users" title="Utilizadores"/>
             <AdminOptionBox routeName="listSponsors" iconName="gift"  title="Patrocinadores"/>
-            <AdminOptionBox routeName="listQuizzes" iconName="stethoscope"  title="Especialistas"/>
+            <AdminOptionBox routeName="listExperts" iconName="stethoscope"  title="Especialistas"/>
           </b-card-group>
           <b-card-group deck class="mt-3">
             <AdminOptionBox routeName="listAnimals" iconName="dog"  title="Animais"/>

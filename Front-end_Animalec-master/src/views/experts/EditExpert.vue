@@ -1,7 +1,7 @@
 <template>
   <section class="page-section">
     <b-container>
-      <HeaderPage title="Adicionar Sponsor" />
+      <HeaderPage title="Adicionar Especialista" />
       <b-row>
         <b-col cols="2"></b-col>
         <b-col>
@@ -11,7 +11,7 @@
                   v-model="img"
                   type="text"
                   class="form-control form-control-lg"
-                  placeholder="Imagem do Patrocinador"
+                  placeholder="Imagem do Especialista"
                   required
               />
             </div>
@@ -20,7 +20,7 @@
                   v-model="name"
                   type="text"
                   class="form-control form-control-lg"
-                  placeholder="Nome do Patrocinador"
+                  placeholder="Nome do Especialista"
                   required
               />
             </div>
@@ -50,10 +50,10 @@
             </div>
             <div class="form-group">
               <input
-                  v-model="years_sponsored"
+                  v-model="years_experted"
                   type="number"
                   class="form-control form-control-lg"
-                  placeholder="Anos de Patrocínio"
+                  placeholder="Anos de Especialista"
                   required
               />
             </div>
@@ -98,7 +98,7 @@
                   v-model="contact"
                   type="text"
                   class="form-control form-control-lg"
-                  placeholder="Valor por ano"
+                  placeholder="Valor por hora"
                   required
               />
             </div>
@@ -106,7 +106,7 @@
               <i class="fas fa-plus-square"></i> ADICIONAR
             </button>
             <router-link
-                :to="{ name: 'listSponsors' }"
+                :to="{ name: 'listExperts' }"
                 tag="button"
                 class="btn btn-outline-danger btn-lg"
             >
@@ -121,13 +121,13 @@
 </template>
 
 <script>
-import { ADD_SPONSOR } from "@/store/sponsors/sponsor.constants";
+import { ADD_EXPERT } from "@/store/experts/expert.constants";
 import HeaderPage from "@/components/HeaderPage.vue";
 import router from "@/router";
 import { mapGetters } from "vuex";
 
 export default {
-  name: "AddSponsor",
+  name: "AddExpert",
   components: {
     HeaderPage
   },
@@ -137,10 +137,10 @@ export default {
       name: "",
       animal: "",
       group: "",
-      years_sponsored: 0,
+      years_experted: 0,
       description: "",
       value:0.0,
-      contact:"",
+      contact: "",
       location: {
         city: "",
         country: ""
@@ -148,14 +148,14 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("sponsor", ["getMessage"])
+    ...mapGetters("expert", ["getMessage"])
   },
   methods: {
     add() {
-      this.$store.dispatch(`sponsor/${ADD_SPONSOR}`, this.$data).then(
+      this.$store.dispatch(`expert/${ADD_EXPERT}`, this.$data).then(
           () => {
-            this.$alert(this.getMessage, "Sponsor adicionado!", "success");
-            router.push({ name: "listSponsors" });
+            this.$alert(this.getMessage, "Especialista adicionado!", "success");
+            router.push({ name: "listExperts" });
           },
           err => {
             this.$alert(`${err.message}`, "Erro", "error");
