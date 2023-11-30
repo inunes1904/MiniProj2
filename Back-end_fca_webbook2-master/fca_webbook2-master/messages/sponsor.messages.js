@@ -1,8 +1,8 @@
 module.exports = {
     success: {
         s0: {
-            code: "SponsorCreated",
             http: 201,
+            code: "SponsorCreated",
             type: "success"
         },
         s1: {
@@ -38,9 +38,16 @@ module.exports = {
     },
     error: {
         e0: {
+            http: 409,
+            code: "SponsornameDuplicate",
+            type: "error"
+        },
+        e1: {
             http: 404,
             code: "SponsorNotFound",
             type: "error"
         }
+    },
+    invalid: {
     }
 }

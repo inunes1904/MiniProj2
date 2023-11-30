@@ -1,9 +1,8 @@
 const Sponsor = require('../models/sponsor.model');
 const { validationResult } = require('express-validator');
 const SponsorMessages = require("../messages/sponsor.messages");
-const JWT = require("jsonwebtoken");
-const CONFIG = require("../config/config");
-
+require("jsonwebtoken");
+require("../config/config");
 exports.get = (req, res) => {
     Sponsor.find(req.query, (error, sponsors) => {
         if (error) throw error;
@@ -45,11 +44,15 @@ exports.create = (req, res) => {
         if (sponsor) return res.status(SponsorMessages.error.e0.http).send(SponsorMessages.error.e0);
 
         new Sponsor({
+
             name: req.body.name,
             animal: req.body.animal,
             group: req.body.group,
             years_sponsored: req.body.years_sponsored,
             description: req.body.description,
+            img:req.body.img,
+            value:req.body.value,
+            contact:req.body.contact,
             location: {
                 city: req.body.location.city,
                 country: req.body.location.country

@@ -4,13 +4,17 @@ const CONFIG = require('../config/config');
 
 const sponsorSchema = new Schema({
     name: String,
-    contact: String,
-    value: Number,
-    contractYears: Number,
-    animal: {
-        type:Schema.Types.ObjectId,
-        ref:"Animal"
-        },
+    animal: String,
+    group: String,
+    years_sponsored: Number,
+    description: String,
+    img:String,
+    value:Number,
+    contact:String,
+    location: {
+        city: String,
+        country: String
+    },
     active: {
         type: Boolean,
         default: true

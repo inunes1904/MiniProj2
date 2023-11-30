@@ -1,23 +1,25 @@
 const express = require('express');
-let router = express.Router();
+const router = express.Router();
 const SponsorController = require('../controllers/sponsor.controller');
 const {
     body,
     param,
-    sanitizeBody
 } = require('express-validator');
-const CONFIG = require("../config/config");
 const AuthController = require("../controllers/auth.controller");
 
 router.route('/')
     .get(AuthController.checkAuth, SponsorController.get)
-    .post(AuthController.checkAuth, [body('name').isString(),
+    .post(AuthController.checkAuth, [
+        body('name').isString(),
+        body('animal').isString(),
         body('group').isString(),
+        body('years_sponsored').isInt(),
         body('description').isString(),
-        body('level').isInt(),
-        body('links.*.types').isAlpha(),
-        body('links.*.url').isURL(),
-        sanitizeBody('description').whitelist(CONFIG.sanitize.alphabet + CONFIG.sanitize.numerical)
+        body('img').isString(),
+        body('value').isFloat(),
+        body('contact').isString(),
+        body('location.city').isString(),
+        body('location.country').isString(),
     ], SponsorController.create);
 
 router.route("/deactivate/:id")

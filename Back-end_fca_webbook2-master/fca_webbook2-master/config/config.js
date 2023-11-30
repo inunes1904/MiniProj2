@@ -1,6 +1,6 @@
 module.exports = {
     mongodb: {
-        uri: 'mongodb://localhost:27017',
+        uri: 'mongodb://localhost:27017/test',
         collections: {
             animal: 'animals',
             question: 'questions',
@@ -8,7 +8,8 @@ module.exports = {
             user: 'users',
             user_levels: 'user_levels',
             expert: 'experts',
-            sponsor:'sponsors'
+            sponsor:'sponsors',
+
         }
     },
     auth: {
